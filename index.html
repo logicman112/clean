@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이사청소 - 서울 인천 경기 입주청소 상가 사무실청소 전문</title>
+    <meta name="description" content="서울 인천 경기 입주청소 이사청소 상가청소 사무실청소 전문. 새집증후군 제거 찌든때 에어컨청소 당일예약. 꼼꼼하고 빠른 전문 청소팀.">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzA3ODRjNyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTUlIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+8J+nkTwvdGV4dD48L3N2Zz4=" type="image/svg+xml">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#f0f7ff;color:#1a2a3a;overflow-x:hidden}
+
+        /* 플로팅 버튼 */
+        .float-call{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+        .float-call a{background:linear-gradient(135deg,#0784c7,#0554a0);color:#fff;padding:16px 24px;border-radius:50px;font-size:1em;font-weight:900;text-decoration:none;box-shadow:0 6px 25px rgba(7,132,199,.5);display:flex;align-items:center;gap:8px;animation:glow 2s infinite}
+        .float-call span{background:rgba(7,84,160,.9);color:#fff;padding:6px 14px;border-radius:20px;font-size:.78em;font-weight:700;border:1px solid rgba(255,255,255,.2)}
+        @keyframes glow{0%,100%{box-shadow:0 6px 25px rgba(7,132,199,.5)}50%{box-shadow:0 6px 40px rgba(7,132,199,.9)}}
+
+        /* 헤더 */
+        header{background:#fff;padding:16px 30px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(7,132,199,.1);position:sticky;top:0;z-index:100;border-bottom:2px solid #e8f4fd}
+        .logo{font-size:1.4em;font-weight:900;color:#0784c7;display:flex;align-items:center;gap:8px}
+        .logo-sub{font-size:.7em;color:#888;font-weight:400;display:block}
+        .header-call{background:linear-gradient(135deg,#0784c7,#0554a0);color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.92em;box-shadow:0 4px 12px rgba(7,132,199,.3)}
+
+        /* 히어로 */
+        .hero{background:linear-gradient(135deg,#0554a0 0%,#0784c7 40%,#00b4d8 100%);padding:80px 20px;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);border-radius:50%}
+        .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,180,216,.15),transparent 65%);border-radius:50%}
+
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:8px 20px;border-radius:50px;font-size:.85em;color:#fff;margin-bottom:28px;backdrop-filter:blur(10px)}
+        .hero h1{font-size:clamp(2.2em,5.5vw,3.8em);font-weight:900;color:#fff;line-height:1.2;margin-bottom:18px;position:relative;z-index:1}
+        .hero h1 em{font-style:normal;background:rgba(255,255,255,.2);padding:2px 12px;border-radius:6px}
+        .hero-desc{font-size:clamp(1em,2.3vw,1.2em);color:rgba(255,255,255,.88);max-width:620px;margin:0 auto 15px;line-height:1.8;position:relative;z-index:1}
+        .hero-point{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 24px;border-radius:8px;font-size:.95em;margin-bottom:40px;position:relative;z-index:1}
+
+        .btn-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:55px;position:relative;z-index:1}
+        .btn-white{background:#fff;color:#0784c7;padding:20px 48px;border-radius:12px;font-size:1.25em;font-weight:900;text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,.2);transition:transform .2s}
+        .btn-white:hover{transform:translateY(-3px)}
+        .btn-outline{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);color:#fff;padding:20px 35px;border-radius:12px;font-size:1em;font-weight:700;text-decoration:none;transition:background .2s}
+        .btn-outline:hover{background:rgba(255,255,255,.2)}
+
+        /* 서비스 탭 카드 */
+        .service-tabs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+        .s-tab{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:12px 22px;border-radius:50px;font-size:.88em;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer;transition:background .2s}
+        .s-tab:hover,.s-tab.active{background:rgba(255,255,255,.25)}
+
+        /* 통계 */
+        .stats{background:#fff;padding:45px 20px;box-shadow:0 4px 20px rgba(7,132,199,.08)}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;max-width:850px;margin:0 auto;text-align:center}
+        .stat-n{font-size:2.6em;font-weight:900;color:#0784c7;display:block;line-height:1}
+        .stat-l{font-size:.82em;color:#888;margin-top:5px}
+
+        /* 섹션 공통 */
+        .sec{padding:75px 20px}
+        .sec-inner{max-width:1050px;margin:0 auto}
+        .sec-head{text-align:center;margin-bottom:50px}
+        .sec-tag{display:inline-block;background:#e8f4fd;color:#0784c7;padding:4px 14px;border-radius:4px;font-size:.78em;font-weight:700;letter-spacing:2px;margin-bottom:12px}
+        .sec-title{font-size:clamp(1.6em,3.5vw,2.3em);font-weight:900;color:#1a2a3a;margin-bottom:10px}
+        .sec-title span{color:#0784c7}
+        .sec-desc{color:#777;font-size:.97em;line-height:1.7}
+
+        /* 서비스 카드 */
+        .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+        .svc-card{background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 20px rgba(7,132,199,.08);transition:all .3s;border-bottom:3px solid transparent;position:relative;overflow:hidden}
+        .svc-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,#e8f4fd,transparent 70%);border-radius:50%}
+        .svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 35px rgba(7,132,199,.18);border-bottom-color:#0784c7}
+        .svc-icon{font-size:2.8em;margin-bottom:16px;display:block}
+        .svc-card h3{font-size:1.05em;font-weight:800;margin-bottom:10px;color:#1a2a3a}
+        .svc-card p{font-size:.87em;color:#777;line-height:1.7}
+        .svc-badge{display:inline-block;margin-top:14px;background:#e8f4fd;color:#0784c7;padding:4px 12px;border-radius:12px;font-size:.75em;font-weight:700}
+
+        /* 비교 섹션 */
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto}
+        .compare-card{border-radius:16px;padding:30px 25px}
+        .compare-card.bad{background:#fff5f5;border:1px solid #fed7d7}
+        .compare-card.good{background:#f0f7ff;border:2px solid #0784c7}
+        .compare-card h3{font-size:1.05em;font-weight:800;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,.08)}
+        .compare-card.bad h3{color:#e53e3e}
+        .compare-card.good h3{color:#0784c7}
+        .compare-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:.9em;color:#555;line-height:1.6}
+        .compare-item::before{flex-shrink:0;font-size:1em}
+        .compare-card.bad .compare-item::before{content:'✗';color:#e53e3e}
+        .compare-card.good .compare-item::before{content:'✓';color:#0784c7}
+
+        /* 갤러리 */
+        .gal-sec{background:#1a2a3a;padding:70px 20px}
+        .gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1050px;margin:0 auto}
+        .gal-item{border-radius:12px;overflow:hidden;position:relative;border:1px solid rgba(7,132,199,.2)}
+        .gal-item img{width:100%;height:210px;object-fit:cover;display:block;transition:transform .4s;filter:brightness(.95)}
+        .gal-item:hover img{transform:scale(1.06);filter:brightness(1.05)}
+        .gal-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.8));padding:14px 12px;font-size:.85em;font-weight:700;color:#fff}
+
+        /* 프로세스 */
+        .proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;max-width:950px;margin:0 auto;text-align:center;position:relative}
+        .proc-grid::before{content:'';position:absolute;top:38px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#0784c7,#00b4d8,#0784c7)}
+        .proc-step{position:relative;z-index:1;padding:20px 12px;background:#fff;border-radius:12px;box-shadow:0 3px 12px rgba(7,132,199,.1)}
+        .proc-num{width:65px;height:65px;background:linear-gradient(135deg,#0784c7,#0554a0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:900;color:#fff;margin:0 auto 14px;box-shadow:0 4px 15px rgba(7,132,199,.35)}
+        .proc-step h3{font-size:.95em;font-weight:800;margin-bottom:7px;color:#1a2a3a}
+        .proc-step p{font-size:.82em;color:#888;line-height:1.6}
+
+        /* 지역 */
+        .area-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:950px;margin:0 auto}
+        .area-card{background:#fff;border-radius:12px;padding:24px 18px;text-align:center;box-shadow:0 3px 12px rgba(7,132,199,.08);transition:all .3s;border-top:3px solid transparent}
+        .area-card:hover{border-top-color:#0784c7;transform:translateY(-3px)}
+        .area-card h3{font-size:1.1em;font-weight:900;color:#0784c7;margin-bottom:9px}
+        .area-card p{font-size:.81em;color:#777;line-height:1.85}
+
+        /* 후기 */
+        .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;max-width:1000px;margin:0 auto}
+        .review-card{background:#fff;border-radius:14px;padding:26px 22px;box-shadow:0 3px 15px rgba(7,132,199,.08);position:relative}
+        .review-card::before{content:'"';position:absolute;top:15px;right:20px;font-size:4em;color:#e8f4fd;font-family:Georgia,serif;line-height:1}
+        .stars{color:#f59600;font-size:1.1em;margin-bottom:10px}
+        .review-text{font-size:.9em;color:#555;line-height:1.75;margin-bottom:14px}
+        .review-info{font-size:.82em;color:#aaa;display:flex;gap:8px;align-items:center}
+        .review-tag{background:#e8f4fd;color:#0784c7;padding:2px 8px;border-radius:8px;font-size:.78em;font-weight:700}
+
+        /* CTA */
+        .cta-sec{background:linear-gradient(135deg,#0554a0,#0784c7,#00b4d8);padding:85px 20px;text-align:center;position:relative;overflow:hidden}
+        .cta-sec::before{content:'🧹';position:absolute;font-size:22em;opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .cta-inner{position:relative;z-index:1}
+        .cta-sec h2{font-size:clamp(1.8em,4vw,2.9em);font-weight:900;color:#fff;margin-bottom:15px}
+        .cta-sec p{color:rgba(255,255,255,.85);margin-bottom:40px;font-size:1.05em;line-height:1.75}
+        .cta-btn{display:inline-block;background:#fff;color:#0784c7;padding:22px 60px;border-radius:14px;font-size:1.5em;font-weight:900;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.2);transition:transform .2s}
+        .cta-btn:hover{transform:scale(1.04)}
+        .cta-note{margin-top:20px;font-size:.88em;color:rgba(255,255,255,.55)}
+
+        footer{background:#0f1f2e;padding:30px 20px;text-align:center;color:rgba(255,255,255,.3);font-size:.84em}
+        footer span{color:#0784c7}
+
+        @media(max-width:768px){
+            .compare-grid{grid-template-columns:1fr}
+            header{padding:12px 16px}
+            .btn-group{flex-direction:column;align-items:center}
+            .btn-white,.btn-outline{width:100%;text-align:center}
+            .proc-grid::before{display:none}
+        }
+    </style>
+</head>
+<body>
+
+<div class="float-call">
+    <span>🧹 청소 견적 문의</span>
+    <a href="tel:050413627212">🧹 0504-1362-7212 무료견적</a>
+</div>
+
+<header>
+    <div class="logo">
+        🧹 이사청소
+        <span class="logo-sub">입주·이사·상가·사무실 청소 전문</span>
+    </div>
+    <a href="tel:050413627212" class="header-call">📞 무료 견적 문의</a>
+</header>
+
+<section class="hero">
+    <div class="hero-badge">✨ 서울·인천·경기 청소 전문팀 즉시 출동</div>
+    <h1>
+        이사 후 첫날부터<br>
+        <em>깨끗한 집</em>에서<br>
+        시작하세요
+    </h1>
+    <p class="hero-desc">입주청소·이사청소·상가청소·사무실청소<br>전문 청소팀이 구석구석 꼼꼼하게 청소해드립니다</p>
+    <div class="hero-point">✓ 당일 예약 가능 &nbsp;·&nbsp; ✓ 투명한 견적 &nbsp;·&nbsp; ✓ 추가비용 없음</div>
+    <div class="btn-group">
+        <a href="tel:050413627212" class="btn-white">🧹 0504-1362-7212 무료견적</a>
+        <a href="#services" class="btn-outline">서비스 보기 ↓</a>
+    </div>
+    <div class="service-tabs">
+        <div class="s-tab active">🏠 입주청소</div>
+        <div class="s-tab">📦 이사청소</div>
+        <div class="s-tab">🏪 상가청소</div>
+        <div class="s-tab">💼 사무실청소</div>
+        <div class="s-tab">❄️ 에어컨청소</div>
+        <div class="s-tab">🧽 특수청소</div>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stats-grid">
+        <div><span class="stat-n">당일</span><div class="stat-l">예약 가능</div></div>
+        <div><span class="stat-n">98%</span><div class="stat-l">고객 만족도</div></div>
+        <div><span class="stat-n">무료</span><div class="stat-l">현장 견적</div></div>
+        <div><span class="stat-n">0원</span><div class="stat-l">추가비용 없음</div></div>
+        <div><span class="stat-n">전국</span><div class="stat-l">서울·인천·경기</div></div>
+    </div>
+</div>
+
+<section class="sec" style="background:#f0f7ff" id="services">
+    <div class="sec-inner">
+        <div class="sec-head">
+            <div class="sec-tag">SERVICES</div>
+            <h2 class="sec-title">청소 <span>서비스 항목</span></h2>
+            <p class="sec-desc">모든 공간 청소 가능 — 꼼꼼하고 빠른 전문 청소팀이 직접 진행합니다</p>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card"><span class="svc-icon">🏠</span><h3>입주청소</h3><p>새집·이사 전 입주 청소. 분진·실리콘·페인트 자국까지 완벽 제거. 새집증후군 저감 청소</p><span class="svc-badge">가장 인기</span></div>
+            <div class="svc-card"><span class="svc-icon">📦</span><h3>이사청소</h3><p>이사 후 기존 집 청소. 오래된 찌든때·기름때·물때 제거. 보증금 돌려받기 청소</p><span class="svc-badge">당일 가능</span></div>
+            <div class="svc-card"><span class="svc-icon">🏪</span><h3>상가·점포 청소</h3><p>폐업·개업 전 상가 청소. 주방 그리스·기름때·악취 제거. 식당·카페·미용실 전문</p><span class="svc-badge">대형 가능</span></div>
+            <div class="svc-card"><span class="svc-icon">💼</span><h3>사무실 청소</h3><p>이전·개편 사무실 청소. 칸막이·책상·바닥 왁스 코팅까지. 주말 야간 작업 가능</p><span class="svc-badge">야간 가능</span></div>
+            <div class="svc-card"><span class="svc-icon">❄️</span><h3>에어컨 청소</h3><p>벽걸이·스탠드·시스템 에어컨 분해 청소. 냄새·곰팡이 완전 제거. 냉방 효율 향상</span><span class="svc-badge">분해청소</span></div>
+            <div class="svc-card"><span class="svc-icon">🧽</span><h3>욕실·주방 특수청소</h3><p>오래된 물때·스케일·곰팡이 전문 제거. 일반 청소로 안 되는 찌든때 특수 약품 처리</p><span class="svc-badge">특수처리</span></div>
+            <div class="svc-card"><span class="svc-icon">🪟</span><h3>창문·베란다 청소</h3><p>고층 창문·베란다·발코니 청소. 새집 분진·결로 흔적·물때 완전 제거</p><span class="svc-badge">고층 가능</span></div>
+            <div class="svc-card"><span class="svc-icon">🏗️</span><h3>건설 후 청소</h3><p>공사·인테리어 후 분진·석고 가루·실리콘 제거. 입주 가능 상태로 완벽 마무리</p><span class="svc-badge">전문처리</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="sec" style="background:#fff">
+    <div class="sec-inner">
+        <div class="sec-head">
+            <div class="sec-tag">DIFFERENCE</div>
+            <h2 class="sec-title">일반 청소와 <span>전문 청소</span>의 차이</h2>
+            <p class="sec-desc">직접 하시는 것과 전문팀이 하는 것은 결과가 다릅니다</p>
+        </div>
+        <div class="compare-grid">
+            <div class="compare-card bad">
+                <h3>❌ 셀프 청소</h3>
+                <div class="compare-item">눈에 보이는 곳만 닦고 끝</div>
+                <div class="compare-item">욕실 물때·스케일 제거 어려움</div>
+                <div class="compare-item">주방 찌든기름때 완전 제거 불가</div>
+                <div class="compare-item">에어컨 내부 곰팡이 그대로</div>
+                <div class="compare-item">새집 분진·화학물질 잔류</div>
+                <div class="compare-item">시간·체력 소모 과다</div>
+            </div>
+            <div class="compare-card good">
+                <h3>✅ 이사청소 전문팀</h3>
+                <div class="compare-item">구석·가구 뒤·천장까지 완전 청소</div>
+                <div class="compare-item">전문 약품으로 물때·스케일 완전 제거</div>
+                <div class="compare-item">고온 스팀으로 찌든기름때 용해 제거</div>
+                <div class="compare-item">에어컨 분해 후 내부 곰팡이 박멸</div>
+                <div class="compare-item">새집증후군 유발 물질 중점 제거</div>
+                <div class="compare-item">빠르고 깔끔하게 당일 완료</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="gal-sec">
+    <div class="sec-head" style="margin-bottom:35px">
+        <div class="sec-tag" style="background:rgba(7,132,199,.2);color:#7ec8e3">BEFORE & AFTER</div>
+        <h2 class="sec-title" style="color:#fff">실제 <span style="color:#7ec8e3">청소 현장</span></h2>
+        <p class="sec-desc" style="color:rgba(255,255,255,.6)">직접 작업한 현장 사진입니다</p>
+    </div>
+    <div class="gal-grid">
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/cleaning,house?random=11" alt="입주청소 현장"><div class="gal-label">🏠 아파트 입주청소</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/bathroom,clean?random=22" alt="욕실 청소"><div class="gal-label">🚿 욕실 물때 제거</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/kitchen,clean?random=33" alt="주방 청소"><div class="gal-label">🍳 주방 기름때 청소</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/office,clean?random=44" alt="사무실 청소"><div class="gal-label">💼 사무실 청소</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/aircon,clean?random=55" alt="에어컨 청소"><div class="gal-label">❄️ 에어컨 분해청소</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/store,clean?random=66" alt="상가 청소"><div class="gal-label">🏪 상가 청소</div></div>
+        <div class="gal-item"><img src="https://loremflickr.com/600/420/window,cleaning?random=77" alt="창문 청소"><div class="gal-label">🪟 창문·베란다 청소</div></div>
+    </div>
+</div>
+
+<section class="sec" style="background:#f0f7ff">
+    <div class="sec-inner">
+        <div class="sec-head">
+            <div class="sec-tag">PROCESS</div>
+            <h2 class="sec-title">청소 <span>진행 순서</span></h2>
+            <p class="sec-desc">전화 한 통으로 시작 — 견적부터 마무리까지 책임집니다</p>
+        </div>
+        <div class="proc-grid">
+            <div class="proc-step"><div class="proc-num">1</div><h3>전화·카톡 문의</h3><p>청소 공간 규모와 일정 간단히 말씀해 주세요</p></div>
+            <div class="proc-step"><div class="proc-num">2</div><h3>견적 안내</h3><p>평수·항목별 투명한 견적 즉시 안내</p></div>
+            <div class="proc-step"><div class="proc-num">3</div><h3>일정 확정</h3><p>원하시는 날짜·시간으로 예약 확정</p></div>
+            <div class="proc-step"><div class="proc-num">4</div><h3>전문팀 출동</h3><p>전문 청소팀이 장비와 약품 지참 출동</p></div>
+            <div class="proc-step"><div class="proc-num">5</div><h3>꼼꼼한 마무리</h3><p>청소 완료 후 고객님과 함께 최종 확인</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="sec" style="background:#fff">
+    <div class="sec-inner">
+        <div class="sec-head">
+            <div class="sec-tag">REVIEWS</div>
+            <h2 class="sec-title">고객 <span>후기</span></h2>
+            <p class="sec-desc">실제 이용하신 고객님들의 후기입니다</p>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">새 아파트 입주 전에 맡겼는데 정말 놀랐어요. 분진이랑 페인트 자국이 말끔히 없어지고 욕실 물때까지 완전히 제거되었어요. 직접 하려다 맡겼는데 잘한 것 같아요.</p>
+                <div class="review-info"><span class="review-tag">입주청소</span> 강남구 · 33평</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">상가 폐업 후 청소를 맡겼는데 주방 기름때가 장난이 아니었는데 깔끔하게 처리해 주셨어요. 다음 임차인에게 민폐 안 끼쳐도 될 것 같아 다행입니다.</p>
+                <div class="review-info"><span class="review-tag">상가청소</span> 마포구 · 식당</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">사무실 이전하면서 기존 사무실 청소 맡겼어요. 보증금 못 돌려받을까봐 걱정했는데 깔끔하게 해주셔서 전액 환급받았습니다. 강추합니다!</p>
+                <div class="review-info"><span class="review-tag">사무실청소</span> 여의도 · 50평</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sec" style="background:#f0f7ff">
+    <div class="sec-inner">
+        <div class="sec-head">
+            <div class="sec-tag">SERVICE AREA</div>
+            <h2 class="sec-title">출동 <span>가능 지역</span></h2>
+            <p class="sec-desc">서울·인천·경기 전 지역 출동 가능</p>
+        </div>
+        <div class="area-grid">
+            <div class="area-card"><h3>서울</h3><p>강남 서초 송파 강동 강서 마포 종로 중구 용산 성동 광진 동대문 성북 강북 노원 은평 양천 구로 영등포 동작 관악</p></div>
+            <div class="area-card"><h3>경기</h3><p>수원 성남 분당 용인 안양 부천 광명 평택 안산 고양 일산 의정부 파주 김포 하남 남양주 구리 광주 이천 양평</p></div>
+            <div class="area-card"><h3>인천</h3><p>중구 동구 미추홀 연수 남동 부평 계양 서구 강화 송도 청라 검단</p></div>
+            <div class="area-card"><h3>전국</h3><p>위 지역 외에도 규모에 따라 출동 가능합니다. 먼저 전화 주시면 확인 후 안내드립니다.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-sec">
+    <div class="cta-inner">
+        <h2>지금 바로 무료 견적 받으세요</h2>
+        <p>평수와 청소 항목만 말씀해 주시면 바로 견적 안내드립니다<br>당일 예약도 가능합니다 — 먼저 전화 주세요</p>
+        <a href="tel:050413627212" class="cta-btn">🧹 0504-1362-7212 무료견적</a>
+        <p class="cta-note">24시간 문자·전화 접수 · 서울 인천 경기 전국 · 당일 예약 가능</p>
+    </div>
+</section>
+
+<footer>
+    <p>이사청소 전문 · 서울 인천 경기 전국</p>
+    <p style="margin-top:8px">무료 견적 문의: <span>0504-1362-7212</span></p>
+</footer>
+
+</body>
+</html>
